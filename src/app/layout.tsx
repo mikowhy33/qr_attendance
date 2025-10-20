@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { NavBar } from "@/components/NavBar";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -27,14 +28,16 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-				// everything in a flex-col
-				className=" flex flex-col h-screen">
+				// everything in a flex-col, min-h-screen minimum of the screen but can go beyond, h-full well 100% of the parent so gonna delete it
+				className=" flex flex-col  min-h-screen ">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange>
-					{children}
+					{<NavBar></NavBar>}
+					{/* flex-1 says take all the space that is left (navbar has his own height and popping also, ex if navbar and poppoing are 100px both and the screen is 900px children will take 800px), flex col yeah also vertical. min-h-0 means you can cut your height given by the flexbox  */}
+					<div className="flex-1 flex flex-col min-h-0">{children}</div>
 				</ThemeProvider>
 			</body>
 		</html>
