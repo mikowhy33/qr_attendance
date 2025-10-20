@@ -43,7 +43,7 @@ export const TeacherPage = ({ src }: Data) => {
 					// interval ended
 					console.log("STOP interval");
 					clearInterval(intervalRef.current!);
-                    // we want this to
+					// we want this to
 					setVisible(false);
 					setData(src);
 					return 0;
@@ -54,6 +54,8 @@ export const TeacherPage = ({ src }: Data) => {
 	};
 
 	const handleClick = () => {
+		setVisible(true); // reset visibility
+		setSeconds(5); // reset timer
 		handleGenerateNew();
 		timerForQrCode();
 	};
@@ -79,17 +81,16 @@ export const TeacherPage = ({ src }: Data) => {
 				<p>Seconds untill the QR code dissapears! {seconds}</p>
 
 				{src || data ? (
-                    // position relative so the divs position will match this
+					// position relative so the divs position will match this
 					<div className="flex flex-1 w-full justify-center items-center relative">
 						<div
-						className={`transition-opacity duration-1000 ${
-							visible ? "opacity-100" : "opacity-0"
-						}`}>
-						
+							className={`transition-opacity duration-1000 ${
+								visible ? "opacity-100" : "opacity-0"
+							}`}>
 							<img src={data.qr} className="w-128 h-128 object-contain" />
 						</div>
-						{visible===false && (
-                            // position absolute, not in the normal flow, getting him out
+						{visible === false && (
+							// position absolute, not in the normal flow, getting him out of the flow and he is in the place of qr code
 							<div className="absolute text-red-500 text-lg">
 								Your time has ended!
 							</div>
