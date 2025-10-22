@@ -36,10 +36,13 @@ export async function POST(req: NextRequest) {
 		});
 
 		console.log("🟢 COOKIE HAS BEEN SET");
+
+        console.log("NASTEPNA STRONA IDZIE DO "+req.nextUrl)
 		return NextResponse.json({ success: true });
 	}
 
 	// alert('Bad login info')
 	console.log("COOKIE HAS NOT BEEN SET, BAD LOGIN INFO");
+   
 	return NextResponse.json({ success: false });
 }

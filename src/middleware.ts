@@ -15,18 +15,14 @@ export function middleware(request: NextRequest) {
 	const { pathname } = request.nextUrl;
 
 	console.log("🍪 Token:", token ? "EXISTS" : "MISSING");
-	console.log(token)
+	// console.log(token)
 	console.log("📍 Pathname:", pathname);
 
-	// jeśli ścieżka to students, omijamy middleware
-	if (pathname.startsWith('/app/students')) {
-		console.log("✅ Skipping middleware for /app/students");
-		return NextResponse.next();
-	}
 
 	// jeśli brak tokena, redirect do loginu
 	if (!token) {
 		console.log("❌ No token, redirecting to /login");
+		console.log(" ❌LINK Z MIDDLEWARE❌"+request.url)
 		return NextResponse.redirect(new URL("/login", request.url));
 	}
 
