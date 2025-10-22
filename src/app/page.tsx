@@ -10,7 +10,7 @@ export default async function Home() {
 
 	const intoJson = await data.json();
 
-	console.log(intoJson);
+	// console.log(intoJson);
 
 	return (
 		<>

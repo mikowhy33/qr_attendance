@@ -25,7 +25,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		// disabling the problem with hydration 
+		<html lang="en"  suppressHydrationWarning>
 			<body
 				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				// everything in a flex-col, min-h-screen minimum of the screen but can go beyond, h-full well 100% of the parent so gonna delete it
@@ -37,7 +38,7 @@ export default function RootLayout({
 					disableTransitionOnChange>
 					{<NavBar></NavBar>}
 					{/* flex-1 says take all the space that is left (navbar has his own height and popping also, ex if navbar and poppoing are 100px both and the screen is 900px children will take 800px), flex col yeah also vertical. min-h-0 means you can cut your height given by the flexbox  */}
-					<div className="flex-1 flex flex-col min-h-0">{children}</div>
+					<main className="flex-1 flex flex-col min-h-0 ">{children}</main>
 				</ThemeProvider>
 			</body>
 		</html>
