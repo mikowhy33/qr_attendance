@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { NextResponse } from "next/server";
+import { useSearchParams } from "next/navigation";
 
 export const LoginPage = () => {
+
+
+	// official hook next.js to get query param inside a component! everything after ? inside a link
+	const searchParams=useSearchParams();
+	// we are getting where he should be redirected 
+	// "redirectTo=/dashboard&lang=pl&mode=dark"
+	// and redirectTo will give us /dashboard
+	const redirectTo=searchParams.get('redirectTo') || '/' // fallback, default
+
 	const [mail, setMail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
@@ -27,7 +37,8 @@ export const LoginPage = () => {
 		// if response fine and data is a success we want 2 redirect to the page
 		if (res.ok && data.success) {
 			console.log("🔵 REDIRECTING RIGHT NOW ");
-			window.location.href = "/attendance_reports";
+			// we are sending him to where he previously wanted to be redirected
+			window.location.href = redirectTo;
 		} else {
 			alert("Wrong data");
 		}
