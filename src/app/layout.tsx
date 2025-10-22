@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { NavBar } from "@/components/NavBar";
 
+import { LogOut } from "@/components/LogOutButton";
+
 const geistSans = Geist({
 	variable: "--font-geist-sans",
 	subsets: ["latin"],
@@ -37,6 +39,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange>
 					{<NavBar></NavBar>}
+					<div className="ml-5 mb-5"><LogOut></LogOut></div>
 					{/* flex-1 says take all the space that is left (navbar has his own height and popping also, ex if navbar and poppoing are 100px both and the screen is 900px children will take 800px), flex col yeah also vertical. min-h-0 means you can cut your height given by the flexbox  */}
 					<main className="flex-1 flex flex-col min-h-0 ">{children}</main>
 				</ThemeProvider>
