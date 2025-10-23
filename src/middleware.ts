@@ -15,10 +15,10 @@ export function middleware(request: NextRequest) {
 	// console.log(token)
 	console.log("📍 Pathname:", pathname);
 
-	// jeśli brak tokena, redirect do loginu
+	// if no token redirect to login
 	if (!token) {
 		console.log("❌ No token, redirecting to /login");
-		console.log(" ❌LINK Z MIDDLEWARE❌" + request.url);
+		console.log(" ❌LINK FROM MIDDLEWARE❌" + request.url);
 		// returning a url with info which we can use later inside login page
 		// we are encoding the path where we want 2 go with encodeURIComponent so the url will not break
 		return NextResponse.redirect(
@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
 		);
 	}
 
-	// weryfikujemy token
+	// we verify token
 	try {
 		const decoded = jwt.verify(token, "secret");
 		console.log("✅ Token valid:", decoded);

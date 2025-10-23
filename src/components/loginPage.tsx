@@ -45,7 +45,7 @@ export const LoginPage = () => {
 	}
 
 	return (
-		<div className="flex flex-col flex-1 h-full items-center p-4">
+		<div className="flex flex-col flex-1 h-full items-center p-4 mt-8">
 			<form
 				onSubmit={onSubmitFunction}
 				className=" flex flex-col items-center sm:w-[100%] lg:w-[60%] border-2 rounded-md  border-amber-200 gap-3 p-4">
