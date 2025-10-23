@@ -43,7 +43,6 @@ export default async function RootLayout({
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange>
-						
 					{token && (
 						<>
 							<NavBar />
@@ -55,6 +54,7 @@ export default async function RootLayout({
 					)}
 
 					{/* flex-1 says take all the space that is left (navbar has his own height and popping also, ex if navbar and poppoing are 100px both and the screen is 900px children will take 800px), flex col yeah also vertical. min-h-0 means you can cut your height given by the flexbox  */}
+					{/* FLEX-1 WILL MAKE THE THINGY WITH SCROLL + SCROLL -  */}
 					<main className="flex-1 flex flex-col min-h-0 ">{children}</main>
 				</ThemeProvider>
 			</body>

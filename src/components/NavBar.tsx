@@ -13,8 +13,8 @@ export const NavBar = () => {
 				<NavigationMenuList>
 					<NavigationMenuItem>
 						<NavigationMenuLink asChild>
-							<Link href="/" passHref>
-								Home
+							<Link href="/lessons" passHref>
+								Teacher Page
 							</Link>
 						</NavigationMenuLink>
 					</NavigationMenuItem>
