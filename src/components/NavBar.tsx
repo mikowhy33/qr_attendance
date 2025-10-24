@@ -8,7 +8,7 @@ import {
 
 export const NavBar = () => {
 	return (
-		<header className=" flex justify-center mt-5 mb-5">
+		<header className=" sticky top-0 flex justify-center mt-5 mb-5">
 			<NavigationMenu>
 				<NavigationMenuList>
 					
@@ -23,7 +23,7 @@ export const NavBar = () => {
 					<NavigationMenuItem>
 						<NavigationMenuLink asChild>
 							<Link href="/lessons" passHref>
-								Teacher Page
+								Teacher Lessons
 							</Link>
 						</NavigationMenuLink>
 					</NavigationMenuItem>

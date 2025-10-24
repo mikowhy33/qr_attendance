@@ -42,7 +42,7 @@ export default async function RootLayout({
 			<body
 				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				// everything in a flex-col, min-h-screen minimum of the screen but can go beyond, h-full well 100% of the parent so gonna delete it
-				className=" flex flex-col  min-h-screen ">
+				className=" flex flex-col  min-h-screen overflow-x-hidden">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

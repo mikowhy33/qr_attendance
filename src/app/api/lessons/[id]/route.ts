@@ -31,7 +31,9 @@ const lessons = [
 
 // we want to get one lesson based on the params
 export async function GET(
+	// we are not using request but it has to be in a GET
 	_request: Request,
+	// here a param is inside a string which is id of the lesson
 	{ params }: { params: { id: string } }
 ) {
 	const id = Number(params.id);

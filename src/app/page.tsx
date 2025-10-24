@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { TeacherPage } from "@/components/teacherPage";
+import { TeacherPage } from "@/components/TeacherPage";
 import { useEffect, useState } from "react";
 import { LessonsPage } from "@/components/LessonsPage";
 

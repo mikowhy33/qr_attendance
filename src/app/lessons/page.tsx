@@ -13,6 +13,7 @@ export default async function LessonsRoute() {
   // all lessons as json
   const data=await res.json();
 
+  console.log(data, 'LESSONS')
 
   // now sending lessons to the component on the UI
   // were sending LessonsPage({ lessons: data });

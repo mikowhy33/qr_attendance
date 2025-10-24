@@ -4,3 +4,11 @@ export type lessonsTypes={
     classes:string,
     time:number
 }
+
+
+export type studTypes = {
+	id: number;
+	name: string;
+	surname: string;
+	time: string;
+};

@@ -24,8 +24,6 @@ export const TeacherPage = ({ src }: Data) => {
 		const data = await res.json();
 		setData(data);
 	};
-	// Wygenerowac funkcje, ktora odliczy 30 sekund, po tym czasie qr code ma zniknac!
-	// 1. Najpierw wygenerowac timer i wyswietlic funkcje
 
 	const timerForQrCode = () => {
 		if (intervalRef.current) {
@@ -56,8 +54,8 @@ export const TeacherPage = ({ src }: Data) => {
 	const handleClick = () => {
 		setVisible(true); // reset visibility
 		setSeconds(5); // reset timer
-		handleGenerateNew();
-		timerForQrCode();
+		handleGenerateNew(); // setting new qr code
+		timerForQrCode(); 
 	};
 
 	// every time the app opens, it checks for running interval,
@@ -73,7 +71,7 @@ export const TeacherPage = ({ src }: Data) => {
 	return (
 		<>
 			{/* We are taking whole space from the body, also width is a screen */}
-			<div className="flex flex-col flex-1 items-center w-screen  gap-3 p-5">
+			<div className="flex flex-col flex-1 items-center w-screen  gap-3  ">
 				<Button onClick={handleClick} className="max-w-2xs">
 					{" "}
 					Click to generate a QR code{" "}
