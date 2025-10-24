@@ -36,10 +36,19 @@ export function middleware(request: NextRequest) {
 		return NextResponse.next();
 	} catch (err) {
 		console.log("❌ Token invalid:", err);
-		return NextResponse.redirect(new URL("/login", request.url));
+		// if token expired we are redirecting to a login and cleaning the token
+		const res = NextResponse.redirect(new URL("/login", request.url));
+		res.cookies.set("token", "", {
+			httpOnly: true,
+			expires: new Date(0),
+			path: "/",
+		});
+		return res;
 	}
 }
 
 export const config = {
+	// idk if we should block all if yes then
+	//  matcher: ["/((?!_next|api|static|.*\\..*).*)"],
 	matcher: ["/", "/attendance_reports/:path*"],
 };

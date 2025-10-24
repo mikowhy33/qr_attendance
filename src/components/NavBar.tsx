@@ -11,6 +11,15 @@ export const NavBar = () => {
 		<header className=" flex justify-center mt-5 mb-5">
 			<NavigationMenu>
 				<NavigationMenuList>
+					
+					<NavigationMenuItem>
+						<NavigationMenuLink asChild>
+							<Link href="/" passHref>
+								Home
+							</Link>
+						</NavigationMenuLink>
+					</NavigationMenuItem>
+
 					<NavigationMenuItem>
 						<NavigationMenuLink asChild>
 							<Link href="/lessons" passHref>

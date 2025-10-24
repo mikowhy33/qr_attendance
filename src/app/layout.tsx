@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { NavBar } from "@/components/NavBar";
 import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
 import { LogOut } from "@/components/LogOutButton";
 
@@ -30,7 +31,11 @@ export default async function RootLayout({
 }>) {
 	const cookieStore = await cookies();
 
-	const token = cookieStore.has("token");
+	const token = cookieStore.get("token")?.value;
+
+	if(token){
+		// const decoded = jwt.verify(token, "secret");
+	}
 	return (
 		// disabling the problem with hydration
 		<html lang="en" suppressHydrationWarning>
@@ -43,7 +48,7 @@ export default async function RootLayout({
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange>
-					{token && (
+					{token &&  (
 						<>
 							<NavBar />
 
