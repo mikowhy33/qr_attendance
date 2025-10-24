@@ -9,7 +9,7 @@ type Data = {
 export const TeacherPage = ({ src }: Data) => {
 	// console.log(src.qr)
 
-	const [data, setData] = useState(src);
+	const [data, setData] = useState<any>("");
 
 	const [seconds, setSeconds] = useState<number>(5);
 
@@ -43,7 +43,6 @@ export const TeacherPage = ({ src }: Data) => {
 					clearInterval(intervalRef.current!);
 					// we want this to
 					setVisible(false);
-					setData(src);
 					return 0;
 				}
 				return prev - 1;
@@ -78,7 +77,7 @@ export const TeacherPage = ({ src }: Data) => {
 				</Button>
 				<p>Seconds untill the QR code dissapears! {seconds}</p>
 
-				{src || data ? (
+				{src  ? (
 					// position relative so the divs position will match this
 					<div className="flex flex-1 w-full justify-center items-center relative">
 						<div

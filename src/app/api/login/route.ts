@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 export async function POST(req: NextRequest) {
 	// we send in json format so we take in json format
 	const { mail, password } = await req.json();
-	
+
 	// right now generated token same 4 everyone bcs no database
 	const token = jwt.sign(
 		// info about user
@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
 
 	console.log("🟢  TOKEN:", token);
 	console.log("🟢 LENGTH OF TOKENU:", token.length);
-	console.log("🟢 DOTS:", (token.match(/\./g) || []).length); // powinno być 
-    console.log(`LINK TO THE SITE SOMEONE WANTS TO ACCESS ${req.nextUrl}`)
+	console.log("🟢 DOTS:", (token.match(/\./g) || []).length); // powinno być
+	console.log(`LINK TO THE SITE SOMEONE WANTS TO ACCESS ${req.nextUrl}`);
 
 	if (mail === "mail123" && password === "123") {
 		const cookiesStore = await cookies();
@@ -37,12 +37,12 @@ export async function POST(req: NextRequest) {
 
 		console.log("🟢 COOKIE HAS BEEN SET");
 
-        console.log("NASTEPNA STRONA IDZIE DO "+req.nextUrl)
+		console.log("NASTEPNA STRONA IDZIE DO " + req.nextUrl);
 		return NextResponse.json({ success: true });
 	}
 
 	// alert('Bad login info')
 	console.log("COOKIE HAS NOT BEEN SET, BAD LOGIN INFO");
-   
+
 	return NextResponse.json({ success: false });
 }
