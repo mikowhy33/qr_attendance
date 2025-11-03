@@ -7,6 +7,7 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 import { LogOut } from "@/components/LogOutButton";
+import { ModeToggle } from "@/components/ThemeButton";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -43,17 +44,20 @@ export default async function RootLayout({
 				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				// everything in a flex-col, min-h-screen minimum of the screen but can go beyond, h-full well 100% of the parent so gonna delete it
 				className=" flex flex-col  min-h-screen overflow-x-hidden">
+					
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange>
+
 					{token &&  (
 						<>
 							<NavBar />
 
-							<div className="ml-5 mb-5">
+							<div className="ml-5 mb-5 flex flex-col items-start gap-3">
 								<LogOut></LogOut>
+								<ModeToggle></ModeToggle>
 							</div>
 						</>
 					)}

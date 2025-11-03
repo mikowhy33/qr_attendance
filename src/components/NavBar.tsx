@@ -8,7 +8,7 @@ import {
 
 export const NavBar = () => {
 	return (
-		<header className=" sticky top-0 flex justify-center mt-5 mb-5">
+		<header className=" flex justify-center mt-5 mb-5">
 			<NavigationMenu>
 				<NavigationMenuList>
 					
