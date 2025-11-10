@@ -24,7 +24,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 	console.log("params typeof ===>", typeof params);
 
 	// below fetching from qr code and the lesson we clicked
-	const data = await fetch("http://localhost:3000/api/qr?text=HelloNextJS", {
+	const data = await fetch("http://localhost:3001/api/qr?text=HelloNextJS", {
 		cache: "no-store",
 	});
 
@@ -32,7 +32,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
 	const id = String(params?.id);
 
-	const lessonData = await fetch(`http://localhost:3000/api/lessons/${id}`);
+	const lessonData = await fetch(`http://localhost:3001/api/lessons/${id}`);
 
 	// console.log("status", lessonData.status);
 	// console.log("text", await lessonData.text());
@@ -47,7 +47,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 		);
 	}
 
-	const res = await fetch("http://localhost:3000/api/students");
+	const res = await fetch("http://localhost:3001/api/students");
 	console.log(res, "RAW DATA");
 	const studentsData = await res.json();
 	console.log(studentsData, "JAJAJAJAJAJJAKOKOIDZAMOBOO");

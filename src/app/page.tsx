@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { LessonsPage } from "@/components/LessonsPage";
 
 export default async function Home() {
-	const data = await fetch("http://localhost:3000/api/qr?text=HelloNextJS", {
+	const data = await fetch("http://localhost:3001/api/qr?text=HelloNextJS", {
 		cache: "no-store",
 	});
 
